@@ -24,5 +24,6 @@ Exceptions are submitted in JSON format:
         errorUrl: "http://...",
         errorMessage: "some message",
         cause: "some cause",
-        stackTrace: ["line1", "line2", "line3", ...]
+        stackTrace: ["line1", "line2", "line3", ...],
+        userAgent: "the user agent"
     }
