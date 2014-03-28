@@ -45,6 +45,7 @@ errorReportingModule.provider('ErrorReport', [function () {
 
                      var errorMessage = exception.toString();
                      var stackTrace = stacktraceService.print({ e: exception });
+                     var userAgent = $window.navigator.userAgent;
 
                      // Log the JavaScript error to the server.
                      // using jQuery ajax call instead of AngularJS $http, due to circular dependencies ($http depends on $exceptionHandler)
@@ -56,7 +57,8 @@ errorReportingModule.provider('ErrorReport', [function () {
                              errorUrl: $window.location.href,
                              errorMessage: errorMessage,
                              stackTrace: stackTrace,
-                             cause: ( cause || "" )
+                             cause: ( cause || "" ),
+                             userAgent: userAgent
                          })
                      });
                  } catch ( loggingError ) {
